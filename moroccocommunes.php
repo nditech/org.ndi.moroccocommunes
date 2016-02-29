@@ -4,8 +4,8 @@
  * Return a list of all the counties
  */
 
-function uscounties_listcounties() {
-  $countryIso = 'US';
+function moroccocommunes_listcounties() {
+  $countryIso = 'MA';
   $counties = array(
     'Alabama' => array(
       'Autauga',
@@ -3258,9 +3258,9 @@ function uscounties_listcounties() {
  * Check and load counties
  */
 
-function uscounties_loadcounties() {
+function moroccocommunes_loadcounties() {
 
-  $allCounties = uscounties_listcounties();
+  $allCounties = moroccocommunes_listcounties();
 
   foreach ($allCounties as $countryIso => $counties) {
     static $dao = NULL;
@@ -3282,7 +3282,7 @@ function uscounties_loadcounties() {
     catch (CiviCRM_API3_Exception $e) {
       $error = $e->getMessage();
       CRM_Core_Error::debug_log_message(ts('API Error: %1', array(
-        'domain' => 'com.aghstrategies.uscounties',
+        'domain' => 'org.ndi.moroccocommunes',
         1 => $error,
       )));
       return FALSE;
@@ -3335,8 +3335,8 @@ function uscounties_loadcounties() {
  *
  * @link http://wiki.civicrm.org/confluence/display/CRMDOC/hook_civicrm_install
  */
-function uscounties_civicrm_install() {
-  uscounties_loadcounties();
+function moroccocommunes_civicrm_install() {
+  moroccocommunes_loadcounties();
 }
 
 /**
@@ -3344,8 +3344,8 @@ function uscounties_civicrm_install() {
  *
  * @link http://wiki.civicrm.org/confluence/display/CRMDOC/hook_civicrm_enable
  */
-function uscounties_civicrm_enable() {
-  uscounties_loadcounties();
+function moroccocommunes_civicrm_enable() {
+  moroccocommunes_loadcounties();
 }
 
 /**
@@ -3359,6 +3359,6 @@ function uscounties_civicrm_enable() {
  *
  * @link http://wiki.civicrm.org/confluence/display/CRMDOC/hook_civicrm_upgrade
  */
-function uscounties_civicrm_upgrade($op, CRM_Queue_Queue $queue = NULL) {
-  uscounties_loadcounties();
+function moroccocommunes_civicrm_upgrade($op, CRM_Queue_Queue $queue = NULL) {
+  moroccocommunes_loadcounties();
 }
