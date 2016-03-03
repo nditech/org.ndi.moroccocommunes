@@ -898,7 +898,7 @@ function moroccocommunes_listcounties() {
     ),
     "M'DIQ - FNIDQ" => array(
       "M'DIQ (M)",
-      'Fnideq',
+      'FNIDEQ',
       'MARTIL',
       'ALLYENE',
       'BENYOUNECH',
